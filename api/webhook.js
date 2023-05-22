@@ -4,6 +4,7 @@ const { Telegraf } = require("telegraf");
 module.exports = (request, response) => {
   const body = request.body;
   const query = request.query;
+  const token = process.env.BOT_TOKEN;
 
   const bot = new Telegraf(process.env.BOT_TOKEN);
   bot.start((ctx) => ctx.reply("Halo"));
@@ -13,6 +14,6 @@ module.exports = (request, response) => {
   bot.launch();
 
   response.json({
-    status: "ok",
+    status: token,
   });
 };
